@@ -71,12 +71,12 @@ def run(cmd):
 
 
 def status(step):
-    turbo = int(run(['rdmsr', '0x1a0', '--bitfield', '38:38'])) == 0
-    if turbo:
+    status = int(run(['rdmsr', '0x1a0', '--bitfield', '38:38'])) == 0
+    if status:
         print('Turbo boost is {} [91menabled[0m.'.format(step))
     else:
         print('Turbo boost is {} [92mdisabled[0m.'.format(step))
-    return turbo
+    return status
 
 
 if args.status:
